@@ -16,7 +16,6 @@ const CartolinaCalendario = ({ navigation }) => {
   };
   LocaleConfig.defaultLocale = 'it';
 
-  
   const da_server = 
   [
     {
@@ -159,7 +158,7 @@ const CartolinaCalendario = ({ navigation }) => {
 
   for(i in da_server)
   {
-    // cartolina è uguale alla copia di se stessa più l'elemento formato da [da_server[i].data] : [{...da_server[i]}]
+    // cartolina è uguale alla copia di se stessa (...cartolina) più l'elemento formato da [da_server[i].data] : [{...da_server[i]}]
     cartolina = {...cartolina, [da_server[i].data] : [{...da_server[i]}]}
   }
 
@@ -167,7 +166,7 @@ const CartolinaCalendario = ({ navigation }) => {
 
   for (const key in cartolina) {
     let dayColor;
-    //key sono i giorni -> '2021-11-10', '2021-11-11', ecc
+    //key sono i giorni -> "2021-11-10", "2021-11-11", ecc
     //i giorni sono reppresentati come vettori, per questo serve [0].errore
     if(cartolina[key][0])
       switch(cartolina[key][0].errore){
@@ -183,8 +182,6 @@ const CartolinaCalendario = ({ navigation }) => {
       }
     giorniColorati[key] = { startingDay: true, endingDay: true, color: dayColor, textColor:'white'}
   }
-
-
 
   return (
     <Agenda
